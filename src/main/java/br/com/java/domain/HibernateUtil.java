@@ -5,8 +5,8 @@
  */
 package br.com.java.domain;
 
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -14,32 +14,13 @@ import org.hibernate.cfg.Configuration;
  */
 public class HibernateUtil {
 
-    private static SessionFactory factory = null;
-    private static Configuration conf;
+    private static EntityManagerFactory entityManagerFactory;
 
-    private static SessionFactory buildSessionFactory() {
-        try {
-            conf = new Configuration();
-            conf.configure("hibernate.cfg.xml");
-
-            System.out.println("Conexão");
-
-            factory = conf.buildSessionFactory();
-            System.out.println("Construiu");
-
-            return factory;
-        } catch (Throwable ex) {
-            ex.printStackTrace();
-
-            throw new ExceptionInInitializerError(ex);
+    public static EntityManagerFactory getEntityManagerFactory() {
+        if (entityManagerFactory == null) {
+            entityManagerFactory = Persistence.createEntityManagerFactory("hibernatejavafx");
         }
-    }
-
-    public static SessionFactory getSessionFactory() {
-        if (factory == null) {
-            factory = buildSessionFactory();
-        }
-        return factory;
+        return entityManagerFactory;
     }
 
 }

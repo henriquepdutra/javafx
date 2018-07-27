@@ -2,18 +2,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.javassist</groupId>
   <artifactId>javassist</artifactId>
-  <packaging>bundle</packaging>
-  <description>
-  	Javassist (JAVA programming ASSISTant) makes Java bytecode manipulation
-    simple.  It is a class library for editing bytecodes in Java.
+  <packaging>jar</packaging>
+  <description>Javassist (JAVA programming ASSISTant) makes Java bytecode manipulation
+     simple.  It is a class library for editing bytecodes in Java.
   </description>
-  <version>3.22.0-GA</version>
+  <version>3.15.0-GA</version>
   <name>Javassist</name>
   <url>http://www.javassist.org/</url>
-
-  <organization>
-    <name>Shigeru Chiba, www.javassist.org</name>
-  </organization>
 
   <issueManagement>
     <system>JIRA</system>
@@ -42,22 +37,22 @@
   </licenses>
 
   <scm>
-    <connection>scm:git:git@github.com:jboss-javassist/javassist.git</connection>
-    <developerConnection>scm:git:git@github.com:jboss-javassist/javassist.git</developerConnection>
-    <url>scm:git:git@github.com:jboss-javassist/javassist.git</url>
+    <connection>scm:svn:http://anonsvn.jboss.org/repos/javassist/</connection>
+    <developerConnection>scm:svn:https://svn.jboss.org/repos/javassist/</developerConnection>
+    <url>http://fisheye.jboss.org/browse/javassist/</url>
   </scm>
 
   <developers>
     <developer>
       <id>chiba</id>
       <name>Shigeru Chiba</name>
-      <email>chiba@javassist.org</email>
-      <organization>The Javassist Project</organization>
+      <email>chiba@acm.org</email>
+      <organization>Tokyo Institute of Technology</organization>
       <organizationUrl>http://www.javassist.org/</organizationUrl>
       <roles>
         <role>project lead</role>
       </roles>
-      <timezone>9</timezone>
+      <timezone>8</timezone>
     </developer>
 
     <developer>
@@ -83,20 +78,6 @@
       </roles>
       <timezone>0</timezone>
     </developer>
-    
-    <developer>
-      <id>scottmarlow</id>
-      <name>Scott Marlow</name>
-      <email>smarlow@redhat.com</email>
-      <organization>JBoss</organization>
-      <organizationUrl>http://www.jboss.org/</organizationUrl>
-      <roles>
-        <role>contributing developer</role>
-      </roles>
-      <timezone>-5</timezone>
-    </developer>
-
-
   </developers>
 
   <distributionManagement>
@@ -141,43 +122,23 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.2</version>
         <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
-          <testSource>1.9</testSource>
-          <testTarget>1.9</testTarget>
-          <testCompilerArgument>-parameters</testCompilerArgument>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.18.1</version>
-        <configuration>
-          <includes>
-            <include>javassist/JvstTest.java</include>
-          </includes>
-	  <forkMode>once</forkMode>
-          <workingDirectory>runtest</workingDirectory>
+          <source>1.4</source>
+          <target>1.4</target>
         </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>2.6</version>
         <configuration>
           <archive>
-            <manifest>
-              <mainClass>javassist.CtClass</mainClass>
-              <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-            </manifest>
+            <manifestFile>${project.build.sourceDirectory}/META-INF/MANIFEST.MF</manifestFile>
           </archive>
         </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-source-plugin</artifactId>
-        <version>2.0.4</version>
+        <version>2.0.3</version>
         <executions>
           <execution>
             <id>attach-sources</id>
@@ -191,37 +152,10 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>3.0.0-M1</version>
+        <version>2.7</version>
 	<configuration>
 	  <attach>true</attach>
 	</configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.felix</groupId>
-        <artifactId>maven-bundle-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>bundle-manifest</id>
-            <phase>process-classes</phase>
-            <goals>
-              <goal>manifest</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <supportedProjectTypes>
-            <supportedProjectType>jar</supportedProjectType>
-            <supportedProjectType>bundle</supportedProjectType>
-            <supportedProjectType>war</supportedProjectType>
-          </supportedProjectTypes>
-          <instructions>
-            <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-            <Bundle-Version>${project.version}</Bundle-Version>
-            <Import-Package>!com.sun.jdi.*</Import-Package>	
-            <Export-Package>!com.sun.jdi.*,javassist.*;version="${project.version}"</Export-Package>
-          </instructions>
-        </configuration>
-        <extensions>true</extensions>
       </plugin>
     </plugins>
   </build>
@@ -266,15 +200,18 @@
 	 needed by sample code
 	 -->
     <profile>
-      <id>default-tools</id>
+      <id>jdk14</id>
       <activation>
-        <jdk>[,1.8]</jdk>
+        <jdk>1.4</jdk>
+        <property>
+           <name>!no.tools</name>
+        </property>
       </activation>
       <dependencies>
         <dependency>
           <groupId>com.sun</groupId>
           <artifactId>tools</artifactId>
-          <version>${java.version}</version>
+          <version>1.4</version>
           <scope>system</scope>
           <optional>true</optional>
           <systemPath>${java.home}/../lib/tools.jar</systemPath>
@@ -282,18 +219,40 @@
       </dependencies>
     </profile>
     <profile>
-      <id>java9-tools</id>
+      <id>jdk15</id>
       <activation>
-        <jdk>[1.9,]</jdk>
+        <jdk>1.5</jdk>
+        <property>
+           <name>!no.tools</name>
+        </property>
       </activation>
       <dependencies>
         <dependency>
           <groupId>com.sun</groupId>
           <artifactId>tools</artifactId>
-          <version>${java.version}</version>
+          <version>1.5</version>
           <scope>system</scope>
           <optional>true</optional>
-          <systemPath>${java.home}/lib/jrt-fs.jar</systemPath>
+          <systemPath>${java.home}/../lib/tools.jar</systemPath>
+        </dependency>
+      </dependencies>
+    </profile>
+    <profile>
+      <id>jdk16</id>
+      <activation>
+        <jdk>1.6</jdk>
+        <property>
+           <name>!no.tools</name>
+        </property>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>com.sun</groupId>
+          <artifactId>tools</artifactId>
+          <version>1.6</version>
+          <scope>system</scope>
+          <optional>true</optional>
+          <systemPath>${java.home}/../lib/tools.jar</systemPath>
         </dependency>
       </dependencies>
     </profile>
@@ -307,4 +266,3 @@
     </dependency>
   </dependencies>
 </project>
-

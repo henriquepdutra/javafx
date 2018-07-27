@@ -12,20 +12,12 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <mainClass>br.com.java.javafxteste.MainApp</mainClass>
+        <hibernate.version>4.1.7.Final</hibernate.version>
+        <mysql.connector.java.version>5.1.46</mysql.connector.java.version>
     </properties>
     
     <dependencies>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>5.3.1.Final</version>
-        </dependency>
 
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>6.0.2</version>
-        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
@@ -42,6 +34,22 @@
             <artifactId>derby</artifactId>
             <version>SNAPSHOT</version>
         </dependency>
+        
+        
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connector.java.version}</version>
+        </dependency>
+        
+        
+        
+        
     </dependencies>
 
     <organization>

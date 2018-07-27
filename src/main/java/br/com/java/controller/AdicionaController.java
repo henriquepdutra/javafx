@@ -41,7 +41,7 @@ public class AdicionaController {
     private TextField tfIdade;
 
     @FXML
-    public void salvar(ActionEvent event) throws IOException {
+    public void salvar(ActionEvent event) throws Exception {
 
         Pessoa pessoa = new Pessoa();
 

@@ -1,1 +1,1 @@
-com.mysql.cj.jdbc.Driver
+org.apache.derby.jdbc.AutoloadedDriver
