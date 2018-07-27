@@ -45,7 +45,7 @@ public class AdicionaController {
 
         Pessoa pessoa = new Pessoa();
 
-        pessoa.setIdade(Integer.parseInt(tfIdade.getText()));
+        pessoa.setIdade(tfIdade.getText());
         pessoa.setNome(tfNome.getText());
 
         PessoaDAO dao = new PessoaDAO();

@@ -18,15 +18,15 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "pessoa")
 public class Pessoa implements Serializable {
-    
+
     @Id
     private int id;
-    
+
     @Column(name = "nome")
     String nome;
-    
+
     @Column(name = "idade")
-    int idade;
+    String idade;
 
     public int getId() {
         return id;
@@ -44,14 +44,12 @@ public class Pessoa implements Serializable {
         this.nome = nome;
     }
 
-    public int getIdade() {
+    public String getIdade() {
         return idade;
     }
 
-    public void setIdade(int idade) {
+    public void setIdade(String idade) {
         this.idade = idade;
     }
-    
-    
-    
+
 }

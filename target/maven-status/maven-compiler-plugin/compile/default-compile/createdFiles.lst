@@ -1,8 +1,9 @@
-br\com\java\dao\PessoaDAO.class
-AdicionaController.class
 br\com\java\domain\HibernateUtil.class
 br\com\java\domain\Pessoa.class
-br\com\java\controller\inicialController.class
 br\com\java\controller\ListaController.class
 br\com\java\javafxteste\MainApp.class
+br\com\java\dao\PessoaDAO.class
+AdicionaController.class
+br\com\java\tabela\PessoaTabela.class
+br\com\java\controller\inicialController.class
 br\com\java\controller\AdicionaController.class

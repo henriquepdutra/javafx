@@ -41,9 +41,14 @@ public class inicialController implements Initializable {
     }
 
     @FXML
-    public void listar(ActionEvent event)  throws IOException {
-        System.out.println("Clicou!");
-//        lblTitulo.setText("Olá Mundo!");
+    public void listar(ActionEvent event)  throws Exception {
+        Parent listagem = FXMLLoader.load(getClass().getResource("/fxml/Lista.fxml"));
+
+        Scene listagemCena = new Scene(listagem);
+        Stage listagemTela = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        listagemTela.setScene(listagemCena);
+        listagemTela.show();
 
     }
 
