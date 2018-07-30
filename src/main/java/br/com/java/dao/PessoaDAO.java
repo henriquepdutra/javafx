@@ -74,18 +74,19 @@ public class PessoaDAO {
         }
 
     }
-//
-//    public void removePessoa(Integer id)  throws IOException {
-//        Session s = HibernateUtil.getSessionFactory().openSession();
-//        s.beginTransaction();
-//        Pessoa c = (Pessoa) s.load(Pessoa.class, id);
-//        s.delete(c);
-//        s.delete(c);
-//        s.getTransaction().commit();
-//        s.close();
-//
-//    }
-//
+
+
+    public void removePessoa(Integer id) throws Exception {
+        EntityManager em = HibernateUtil.getEntityManagerFactory()
+                .createEntityManager();
+        em.getTransaction().begin();
+        Pessoa c = (Pessoa) em.find(Pessoa.class, id);
+        em.remove(c);
+        em.getTransaction().commit();
+        em.close();
+
+    }
+
 //    public void updatePessoa(Pessoa pessoa)  throws IOException {
 //        Session s = HibernateUtil.getSessionFactory().openSession();
 //        s.beginTransaction();

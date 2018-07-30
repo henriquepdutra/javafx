@@ -13,10 +13,17 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 /**
  *
@@ -31,6 +38,10 @@ public class ListaController {
     private TableColumn<PessoaTabela, String> colunaNome;
     @FXML
     private TableColumn<PessoaTabela, String> colunaIdade;
+    @FXML
+    private Button btnExcluir = new Button();
+    @FXML
+    private Button btnEditar = new Button();
 
     private PessoaDAO dao = new PessoaDAO();
 
@@ -55,6 +66,36 @@ public class ListaController {
         colunaIdade.setCellValueFactory(new PropertyValueFactory<PessoaTabela, String>("Idade"));
 
         tabela.setItems(listaPessoaTabela);
+
+    }
+
+    @FXML
+    public void excluir() throws Exception {
+        PessoaTabela pessoa = tabela.getSelectionModel().getSelectedItem();
+        int id = pessoa.getId();
+
+        listaPessoaTabela.remove(pessoa);
+        dao.removePessoa(id);
+        pessoaList = dao.listaPessoa();
+
+        listar();
+
+    }
+
+    @FXML
+    public void editar() throws Exception {
+        System.out.println("editar");
+    }
+
+    @FXML
+    public void voltar(ActionEvent event) throws Exception {
+        Parent listagem = FXMLLoader.load(getClass().getResource("/fxml/Inicial.fxml"));
+
+        Scene listagemCena = new Scene(listagem);
+        Stage listagemTela = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        listagemTela.setScene(listagemCena);
+        listagemTela.show();
 
     }
 

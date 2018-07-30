@@ -60,4 +60,16 @@ public class AdicionaController {
 
     }
 
+    @FXML
+    public void voltar(ActionEvent event) throws Exception {
+        Parent listagem = FXMLLoader.load(getClass().getResource("/fxml/Inicial.fxml"));
+
+        Scene listagemCena = new Scene(listagem);
+        Stage listagemTela = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        listagemTela.setScene(listagemCena);
+        listagemTela.show();
+
+    }
+
 }

@@ -3,6 +3,7 @@ package br.com.java.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -41,7 +42,7 @@ public class inicialController implements Initializable {
     }
 
     @FXML
-    public void listar(ActionEvent event)  throws Exception {
+    public void listar(ActionEvent event) throws Exception {
         Parent listagem = FXMLLoader.load(getClass().getResource("/fxml/Lista.fxml"));
 
         Scene listagemCena = new Scene(listagem);
@@ -53,9 +54,32 @@ public class inicialController implements Initializable {
     }
 
     @FXML
-    public void sair(ActionEvent event)  throws IOException{
-        System.out.println("Clicou!");
-//        lblTitulo.setText("Olá Mundo!");
+    public void boots(ActionEvent event) throws Exception {
+        Parent listagem = FXMLLoader.load(getClass().getResource("/fxml/bootstrap2overview.fxml"));
+
+        Scene listagemCena = new Scene(listagem);
+        Stage listagemTela = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        listagemTela.setScene(listagemCena);
+        listagemTela.show();
+
+    }
+
+    @FXML
+    public void boots2(ActionEvent event) throws Exception {
+        Parent listagem = FXMLLoader.load(getClass().getResource("/fxml/bootstrap3overview.fxml"));
+
+        Scene listagemCena = new Scene(listagem);
+        Stage listagemTela = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        listagemTela.setScene(listagemCena);
+        listagemTela.show();
+
+    }
+
+    @FXML
+    public void sair(ActionEvent event) throws Exception {
+        Platform.exit();
 
     }
 

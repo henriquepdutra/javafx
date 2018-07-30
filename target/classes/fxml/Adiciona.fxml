@@ -14,6 +14,6 @@
       <TextField fx:id="tfNome" layoutX="128.0" layoutY="115.0" />
       <TextField fx:id="tfIdade" layoutX="128.0" layoutY="169.0" />
       <Button fx:id="btnSalvar" layoutX="353.0" layoutY="312.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />
-      <Button fx:id="btnSair" layoutX="458.0" layoutY="312.0" mnemonicParsing="false" text="Sair" />
+      <Button fx:id="btnSair" layoutX="458.0" layoutY="312.0" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
    </children>
 </AnchorPane>

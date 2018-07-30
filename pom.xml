@@ -47,8 +47,15 @@
             <version>${mysql.connector.java.version}</version>
         </dependency>
         
+                
+        <!--        <dependency>
+            <groupId>de.jensd</groupId>
+            <artifactId>fontawesomefx-commons</artifactId>
+            <version>9.1.2</version>
+            <type>pom</type>
+        </dependency>-->
         
-        
+
         
     </dependencies>
 

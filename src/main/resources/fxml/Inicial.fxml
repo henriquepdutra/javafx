@@ -10,5 +10,7 @@
       <Button fx:id="btnAdicionar" layoutX="143.0" layoutY="113.0" mnemonicParsing="false" onAction="#adicionar" text="Adicionar" />
       <Button fx:id="btnListar" layoutX="143.0" layoutY="168.0" mnemonicParsing="false" onAction="#listar" text="Listar" />
       <Button fx:id="btnSair" layoutX="497.0" layoutY="333.0" mnemonicParsing="false" onAction="#sair" text="Sair" />
+      <Button fx:id="btnBoots" layoutX="143.0" layoutY="213.0" mnemonicParsing="false" onAction="#boots" text="Bootstrap 2" />
+      <Button fx:id="btnBoots2" layoutX="143.0" layoutY="262.0" mnemonicParsing="false" onAction="#boots2" text="Bootstrap 3" />
    </children>
 </AnchorPane>
