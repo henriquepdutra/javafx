@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -16,4 +17,7 @@
       <Button fx:id="btnSalvar" layoutX="353.0" layoutY="312.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />
       <Button fx:id="btnSair" layoutX="458.0" layoutY="312.0" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
    </children>
+       <stylesheets>
+        <URL value="@/styles/bootstrap3.css" />
+    </stylesheets>
 </AnchorPane>

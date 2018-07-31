@@ -75,7 +75,6 @@ public class PessoaDAO {
 
     }
 
-
     public void removePessoa(Integer id) throws Exception {
         EntityManager em = HibernateUtil.getEntityManagerFactory()
                 .createEntityManager();
@@ -87,11 +86,12 @@ public class PessoaDAO {
 
     }
 
-//    public void updatePessoa(Pessoa pessoa)  throws IOException {
-//        Session s = HibernateUtil.getSessionFactory().openSession();
-//        s.beginTransaction();
-//        s.update(pessoa);
-//        s.getTransaction().commit();
-//        s.close();
-//    }
+    public void updatePessoa(Pessoa pessoa) throws Exception {
+        EntityManager em = HibernateUtil.getEntityManagerFactory()
+                .createEntityManager();
+        em.getTransaction().begin();
+        em.merge(pessoa);
+        em.getTransaction().commit();
+        em.close();
+    }
 }

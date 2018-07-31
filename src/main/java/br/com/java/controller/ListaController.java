@@ -22,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -42,6 +43,10 @@ public class ListaController {
     private Button btnExcluir = new Button();
     @FXML
     private Button btnEditar = new Button();
+    @FXML
+    private TextField tfNome = new TextField();
+    @FXML
+    private TextField tfIdade = new TextField();
 
     private PessoaDAO dao = new PessoaDAO();
 
@@ -84,7 +89,20 @@ public class ListaController {
 
     @FXML
     public void editar() throws Exception {
-        System.out.println("editar");
+//        System.out.println("editar");
+        PessoaTabela pessoaTabela = tabela.getSelectionModel().getSelectedItem();
+
+        Pessoa pessoaUpdate = new Pessoa(pessoaTabela);
+        pessoaUpdate.setNome(tfNome.getText());
+        pessoaUpdate.setIdade(tfIdade.getText());
+        
+        dao.updatePessoa(pessoaUpdate);
+        
+        pessoaList = dao.listaPessoa();
+        
+        listar();
+                
+
     }
 
     @FXML

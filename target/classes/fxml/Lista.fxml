@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -14,9 +15,16 @@
           <TableColumn fx:id="colunaIdade" prefWidth="75.0" text="C2" />
         </columns>
       </TableView>
-      <Button layoutX="190.0" layoutY="303.0" mnemonicParsing="false" onAction="#listar" text="Buscar" />
+      <Button fx:id="btnBuscar" layoutX="190.0" layoutY="303.0" mnemonicParsing="false" onAction="#listar" text="Buscar" />
       <Button fx:id="btnExcluir" layoutX="340.0" layoutY="303.0" mnemonicParsing="false" onAction="#excluir" text="Excluir" />
       <Button fx:id="btnEditar" layoutX="267.0" layoutY="303.0" mnemonicParsing="false" onAction="#editar" text="Editar" />
       <Button fx:id="btnVoltar" layoutX="479.0" layoutY="348.0" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
+      <TextField fx:id="tfNome" layoutX="92.0" layoutY="246.0" />
+      <TextField fx:id="tfIdade" layoutX="291.0" layoutY="246.0" />
+      <Label layoutX="92.0" layoutY="229.0" text="Nome" />
+      <Label layoutX="291.0" layoutY="229.0" text="Idade" />
    </children>
+       <stylesheets>
+        <URL value="@/styles/bootstrap3.css" />
+    </stylesheets>
 </AnchorPane>
