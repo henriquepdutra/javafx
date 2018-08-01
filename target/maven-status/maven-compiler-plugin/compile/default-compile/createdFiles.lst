@@ -1,3 +1,6 @@
+br\com\java\dao\PessoaDAO.class
+br\com\java\tabela\PessoaTabela.class
+br\com\java\controller\AdicionaController.class
 br\com\java\security\Authenticator.class
 br\com\java\domain\HibernateUtil.class
 br\com\java\domain\Pessoa.class
@@ -5,9 +8,7 @@ br\com\java\controller\ListaController.class
 br\com\java\model\User.class
 br\com\java\javafxteste\MainApp.class
 br\com\java\controller\bootstrap3Controller.class
-br\com\java\dao\PessoaDAO.class
 br\com\java\controller\LoginController.class
-br\com\java\tabela\PessoaTabela.class
 br\com\java\controller\inicialController.class
 br\com\java\controller\bootstrap2Controller.class
-br\com\java\controller\AdicionaController.class
+br\com\java\controller\PrincipalController.class

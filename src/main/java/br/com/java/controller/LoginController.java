@@ -32,17 +32,24 @@
 package br.com.java.controller;
 
 import br.com.java.javafxteste.MainApp;
+import br.com.java.model.User;
+import br.com.java.security.Authenticator;
 import java.awt.Color;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  * Login Controller.
@@ -59,30 +66,50 @@ public class LoginController extends AnchorPane implements Initializable {
     Label errorMessage;
 
     private MainApp application;
-    
-    
-    public void setApp(MainApp application){
+    private User loggedUser;
+
+    public void setApp(MainApp application) {
         this.application = application;
     }
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         errorMessage.setText("");
         userId.setPromptText("Usuário");
         password.setPromptText("Senha");
-        
+
     }
-    
-    
-    public void processLogin(ActionEvent event) {
-        if (application == null){
-            // We are running in isolated FXML, possibly in Scene Builder.
-            // NO-OP.
-            errorMessage.setText("Erro: " + userId.getText());
-        } else {
-            if (!application.userLogging(userId.getText(), password.getText())){
-                errorMessage.setText("Usuário/Senha incorrecto");
-            }
-        }
+
+    public void processLogin(ActionEvent event) throws Exception {
+//        if (application == null) {
+//            // We are running in isolated FXML, possibly in Scene Builder.
+//            // NO-OP.
+//            errorMessage.setText("Erro: " + userId.getText());
+//        } else if (!this.userLogging(userId.getText(), password.getText())) {
+//            errorMessage.setText("Usuário/Senha incorreto");
+
+        Parent inicial = FXMLLoader.load(getClass().getResource("/fxml/Principal.fxml"));
+
+        Scene inicialCena = new Scene(inicial);
+        Stage inicialTela = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        inicialTela.setScene(inicialCena);
+        inicialTela.show();
+
     }
+
+//    public boolean userLogging(String userId, String password) {
+//        if (Authenticator.validate(userId, password)) {
+//            loggedUser = User.of(userId);
+//            System.out.println("logado");
+//            return true;
+//        } else {
+//            System.out.println("não logado");
+//            return false;
+//        }
+//    }
+//
+//    public User getLoggedUser() {
+//        return loggedUser;
+//    }
 }

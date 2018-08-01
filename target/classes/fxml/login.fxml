@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" styleClass="background" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="br.com.java.controller.LoginController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.java.controller.LoginController">
   <children>
     <AnchorPane id="anchorPane2" prefHeight="300.0" prefWidth="500.0" styleClass="top-segment" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
@@ -16,10 +16,13 @@
           <children>
             <AnchorPane id="AnchorPane" prefHeight="180.0" prefWidth="430.0">
               <children>
-                <Label id="label1" layoutX="14.0" layoutY="67.0" text="Username" />
                 <TextField id="textField1" fx:id="userId" layoutY="86.0" prefWidth="415.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" />
-                <Label id="label1" layoutX="14.0" layoutY="139.0" text="Password" />
                 <PasswordField id="passwordField1" fx:id="password" layoutY="157.0" prefWidth="415.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" />
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="121.0" layoutY="-61.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/Logo_V1_Horizontal-SA.png" />
+                           </image>
+                        </ImageView>
               </children>
             </AnchorPane>
           </children>
