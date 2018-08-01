@@ -24,9 +24,11 @@ import javafx.stage.Stage;
  * @author henrique
  */
 public class PrincipalController implements Initializable {
-    
+
     @FXML
     MenuItem btnTelas = new MenuItem();
+    @FXML
+    Button btnButton = new Button(); 
 
     @FXML
     public void inicial(ActionEvent event) throws Exception {

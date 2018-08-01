@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -12,31 +13,44 @@
   <children>
     <AnchorPane id="anchorPane2" prefHeight="300.0" prefWidth="500.0" styleClass="top-segment" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-        <VBox id="VBox" alignment="CENTER" prefHeight="300.0" prefWidth="421.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
+        <VBox id="VBox" alignment="CENTER" prefHeight="300.0" prefWidth="431.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
           <children>
             <AnchorPane id="AnchorPane" prefHeight="180.0" prefWidth="430.0">
               <children>
-                <TextField id="textField1" fx:id="userId" layoutY="86.0" prefWidth="415.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" />
-                <PasswordField id="passwordField1" fx:id="password" layoutY="157.0" prefWidth="415.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" />
-                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="121.0" layoutY="-61.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="217.0" fitWidth="379.0" layoutX="52.0" layoutY="-51.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/Logo_V1_Horizontal-SA.png" />
+                              <Image url="@../images/Logo_V1_Horizontal.png" />
                            </image>
                         </ImageView>
+                        <Label layoutY="173.0" prefHeight="35.0" prefWidth="57.0" text="Usuário">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
               </children>
             </AnchorPane>
+          <TextField id="textField1" fx:id="userId" prefHeight="34.0" prefWidth="431.0" />
           </children>
         </VBox>
       </children>
     </AnchorPane>
-    <Button id="button1" fx:id="login" defaultButton="true" layoutX="345.0" onAction="#processLogin" prefHeight="25.0" prefWidth="115.0" text="Login" textFill="#428bca" AnchorPane.bottomAnchor="66.0" AnchorPane.leftAnchor="345.0" AnchorPane.rightAnchor="40.0" />
-    <HBox id="hBox1" alignment="CENTER" prefHeight="25.0" prefWidth="418.0" AnchorPane.bottomAnchor="156.0" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="41.0">
+    <Button id="button1" fx:id="login" defaultButton="true" layoutX="345.0" onAction="#processLogin" prefHeight="25.0" prefWidth="115.0" text="Login" textFill="#428bca" AnchorPane.bottomAnchor="66.0" AnchorPane.leftAnchor="345.0" AnchorPane.rightAnchor="40.0">
+         <styleClass>
+            <String fx:value="action-btn" />
+            <String fx:value="primary" />
+         </styleClass>
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+    <HBox id="hBox1" alignment="CENTER" layoutX="34.0" layoutY="363.0" prefHeight="25.0" prefWidth="418.0" AnchorPane.bottomAnchor="112.0" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="48.0">
       <children>
         <Label id="label2" fx:id="errorMessage" />
       </children>
     </HBox>
+<PasswordField id="passwordField1" fx:id="password" layoutX="28.0" layoutY="323.0" prefHeight="35.0" prefWidth="431.0" />
+      <Label layoutX="28.0" layoutY="298.0" text="Senha">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
   </children>
-  <stylesheets>
-    <URL value="@Login.css" />
-  </stylesheets>
 </AnchorPane>
